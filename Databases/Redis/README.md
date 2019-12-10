@@ -16,7 +16,7 @@
 - Good datatype support
 - Can be a caching && || persistent db to disk
 
-<br>
+
 
 ### `Datatype supported:`
 ```html
@@ -30,19 +30,15 @@ Hyperlogs
 Geospatial indexes
 ```
 
-<br>
 
 ### `Security:`
 ```html
-To be accessed by trusted clients (internally)
-Do not allow external / internet access or exposure
-Simple auth can be setup
-Can be restricted to certain interfaces
-Data encryption not supported
+- To be accessed by trusted clients (internally)
+- Do not allow external / internet access or exposure
+- Simple auth can be setup
+- Can be restricted to certain interfaces
+- Data encryption not supported
 ```
-
-<br>
-
 
 ### `Optional Durability:`
 ```html
@@ -51,7 +47,6 @@ Data encryption not supported
 - Both happen asynch in the background
 ```
 
-<br>
 
 ### `Transport Protocol:`
 ```html
@@ -60,7 +55,6 @@ Data encryption not supported
 - Message format is RESP (REdis Serialization Protocol)
 ```
 
-<br>
 
 ### `PUB/SUB:`
 ```html
@@ -69,12 +63,11 @@ Data encryption not supported
 - in that case, will switch from TCP to Push model
 ```
 
-<br>
 
 ### `Replication:`
 ```html
 
-- leader-follower model; 1 to many
+- Leader-follower model; 1 to many
 - Write to one and replicate to many
 ```
 
@@ -90,8 +83,6 @@ Data encryption not supported
 - Spin up Redis docker instance (persist)
 - Set kv
 - Set kv with expiry
-
-<br>
 
 ### `Install docker (MacOS, Linux or winOS Pro/Enterprise)`
 
@@ -150,7 +141,7 @@ Redis msi file -> installer
 
 <br>
 
-## `Some common commands`
+## `Some Common Commands:`
 
 `Any connection?`
 ```html
@@ -196,8 +187,8 @@ PERSIST greeting
 MSET key1 “hi” key2 “world”
 ```
 
-`Snapshots that will be saved to disk:`
-Var/lib/redis/dump.rdb
+`Snapshots that will be saved to disk: @ var/lib/redis/dump.rdb`
+
 ```html
 SAVE
 ```
@@ -214,6 +205,7 @@ sudo nano redis.conf
 subscribe <channel>
 publish <channel> "hello"
 ```
+<br>
 
 ## `Other Rsc:`
 -  https://redis.io/documentation
