@@ -1,4 +1,4 @@
-## `What is Redis?`
+# `What is Redis?`
 - Open src in-memory data structure store
 - NoSQL key value store
 - Can be used as db (disk) /or cache (mem) and message broker
@@ -8,7 +8,17 @@
 
 <br>
 
-### `Datatype supported`
+## `Advantages:`
+- Flexible
+- No schemas & column names
+- Very fast
+- perform ~110k SETS/s, ~81k GETS/s
+- Good datatype support
+- Can be a caching && || persistent db to disk
+
+<br>
+
+### `Datatype supported:`
 ```html
 Strings
 Lists
@@ -22,19 +32,7 @@ Geospatial indexes
 
 <br>
 
-
-### `Advantages`
-- Flexible
-- No schemas & column names
-- Very fast
-- perform ~110k SETS/s, ~81k GETS/s
-- Good datatype support
-- Can be a caching && || persistent db to disk
-
-<br>
-
-
-### `Security`
+### `Security:`
 ```html
 To be accessed by trusted clients (internally)
 Do not allow external / internet access or exposure
@@ -46,31 +44,25 @@ Data encryption not supported
 <br>
 
 
-### `Optional Durability`
+### `Optional Durability:`
 ```html
 - Journaling: write data to mem + log event to disk (append only log)
-
-https://redislabs.com/ebook/part-2-core-concepts/chapter-4-keeping-data-safe-and-ensuring-performance/4-1-persistence-options/4-1-2-append-only-file-persistence/
-
 - Snapshot
 - Both happen asynch in the background
 ```
 
 <br>
 
-### `Transport Protocol`
+### `Transport Protocol:`
 ```html
 - Uses TCP (bi-directional communication)
-
-https://networkengineering.stackexchange.com/questions/24068/why-do-we-need-a-3-way-handshake-why-not-just-2-way
-
 - Req/ Res model like HTTP 
 - Message format is RESP (REdis Serialization Protocol)
 ```
 
 <br>
 
-### `PUB/SUB`
+### `PUB/SUB:`
 ```html
 - Supports Publish/ Subscribe model
 - client that sub to channel will be notified when data is "push" to channel
@@ -79,21 +71,21 @@ https://networkengineering.stackexchange.com/questions/24068/why-do-we-need-a-3-
 
 <br>
 
-### `Replication`
+### `Replication:`
 ```html
 
 - leader-follower model; 1 to many
 - Write to one and replicate to many
 ```
 
-### `Clustering`
+### `Clustering:`
 ```html
 - Shard (segment) data across multiple nodes (machine)
 ```
 
 <br>
 
-## `Using Docker to test`
+## `Using Docker:`
 
 - Spin up Redis docker instance (persist)
 - Set kv
@@ -120,7 +112,7 @@ docker exec -it rdb redis-cli
 
 <br>
 
-## `Ubuntu`
+## `Ubuntu:`
 
 ```html
 Sudo apt-get update
@@ -133,7 +125,7 @@ Redis-cli
 
 <br>
 
-## `Enable Ubuntu in Windows`
+## `Enable Ubuntu in Windows:`
 
 - Install UBUNTU from windows store
 - Enable 'Windows Subsystem for Linux' in windows feature
@@ -160,11 +152,12 @@ Redis msi file -> installer
 
 ## `Some common commands`
 
-Any connection?
+`Any connection?`
 ```html
 Ping
 ECHO ‘hello’
 ```
+`Set and Get`
 ```html
 set <key> <"value">
 get <key>
@@ -174,11 +167,11 @@ SET key1 100
 GET key1
 ```
 
-Exist?
+`Exist?`
 ```html
 EXIST key1
 ```
-
+`Delete`
 ```html
 DEL key1
 FLUSHALL
@@ -191,36 +184,44 @@ GET server:name
 SET server:port 8000
 GET server:port
 ```
-
+`Set with expiry`
 ```html
 SETEX greeting 30 “Hello”
 TTL greeting
 PERSIST greeting
 ```
 
-{ >1}
-`MSET key1 “hi” key2 “world”`
+`Set > 1 key value`
+```html
+MSET key1 “hi” key2 “world”
+```
 
-
-Snapshots that will be saved to disk @ <br>
+`Snapshots that will be saved to disk:`
 Var/lib/redis/dump.rdb
-`SAVE`
+```html
+SAVE
+```
 
 
-Config file can be found at:
+`Config file can be found at:`
 ```html
 cd /etc/redis
 ls
 sudo nano redis.conf
 ```
 
-`subscribe <channel>`
-`publish <channel> "hello"`
+```html
+subscribe <channel>
+publish <channel> "hello"
+```
 
 ## `Other Rsc:`
 -  https://redis.io/documentation
 -  https://redis.io/commands#
 -  https://redis.io/topics/persistence
+-  https://redislabs.com/ebook/part-2-core-concepts/chapter-4-keeping-data-safe-and-ensuring-performance/4-1-persistence-options/4-1-2-append-only-file-persistence/
+-  https://networkengineering.stackexchange.com/questions/24068/why-do-we-need-a-3-way-handshake-why-not-just-2-way
+
     
 
 
