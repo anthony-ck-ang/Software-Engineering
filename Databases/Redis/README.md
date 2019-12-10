@@ -16,7 +16,7 @@
 - Good datatype support
 - Can be a caching && || persistent db to disk
 
-
+<br>
 
 ### `Datatype supported:`
 ```html
@@ -30,6 +30,8 @@ Hyperlogs
 Geospatial indexes
 ```
 
+<br>
+
 
 ### `Security:`
 ```html
@@ -40,6 +42,8 @@ Geospatial indexes
 - Data encryption not supported
 ```
 
+<br>
+
 ### `Optional Durability:`
 ```html
 - Journaling: write data to mem + log event to disk (append only log)
@@ -48,6 +52,8 @@ Geospatial indexes
 ```
 
 
+<br>
+
 ### `Transport Protocol:`
 ```html
 - Uses TCP (bi-directional communication)
@@ -55,6 +61,7 @@ Geospatial indexes
 - Message format is RESP (REdis Serialization Protocol)
 ```
 
+<br>
 
 ### `PUB/SUB:`
 ```html
@@ -63,6 +70,7 @@ Geospatial indexes
 - in that case, will switch from TCP to Push model
 ```
 
+<br>
 
 ### `Replication:`
 ```html
@@ -70,6 +78,8 @@ Geospatial indexes
 - Leader-follower model; 1 to many
 - Write to one and replicate to many
 ```
+
+<br>
 
 ### `Clustering:`
 ```html
@@ -83,6 +93,9 @@ Geospatial indexes
 - Spin up Redis docker instance (persist)
 - Set kv
 - Set kv with expiry
+
+
+<br>
 
 ### `Install docker (MacOS, Linux or winOS Pro/Enterprise)`
 
@@ -148,6 +161,9 @@ Redis msi file -> installer
 Ping
 ECHO ‘hello’
 ```
+
+<br>
+
 `Set and Get`
 ```html
 set <key> <"value">
@@ -156,25 +172,32 @@ get <key>
 {k, v}
 SET key1 100
 GET key1
-```
-
-`Exist?`
-```html
-EXIST key1
-```
-`Delete`
-```html
-DEL key1
-FLUSHALL
-```
-
-```html
+    
 SET server:name some server
 GET server:name
 
 SET server:port 8000
 GET server:port
 ```
+
+<br>
+
+`Exist?`
+```html
+EXIST key1
+```
+
+<br>
+
+`Delete`
+```html
+DEL key1
+FLUSHALL
+```
+
+<br>
+
+
 `Set with expiry`
 ```html
 SETEX greeting 30 “Hello”
@@ -182,16 +205,22 @@ TTL greeting
 PERSIST greeting
 ```
 
+<br>
+
 `Set > 1 key value`
 ```html
 MSET key1 “hi” key2 “world”
 ```
+
+<br>
 
 `Snapshots that will be saved to disk: @ var/lib/redis/dump.rdb`
 
 ```html
 SAVE
 ```
+
+<br>
 
 
 `Config file can be found at:`
@@ -201,6 +230,9 @@ ls
 sudo nano redis.conf
 ```
 
+<br>
+
+`SUB/PUB:`
 ```html
 subscribe <channel>
 publish <channel> "hello"
